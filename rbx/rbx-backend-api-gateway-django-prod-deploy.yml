@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: rbx-backend-api-gateway-django-prod-deploy
-          image: ldamasio/rbx-backend-api-gateway-nginx-prod:latest
+          image: ldamasio/rbx-backend-api-gateway-django-prod:latest
           env:
           - name: DJANGO_SETTINGS_MODULE
             value: "backend.settings"
