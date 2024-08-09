@@ -20,7 +20,7 @@ spec:
           image: ldamasio/rbx-backend-api-gateway-django-prod:latest
           env:
           - name: DJANGO_SETTINGS_MODULE
-            value: "backend.settings"
+            value: "rbx_api_gateway.settings"
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
