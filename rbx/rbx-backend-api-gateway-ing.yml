@@ -18,13 +18,13 @@ spec:
         path: "/"
         backend:
           service:
-            name: rbx-backend-api-gateway-django-svc
+            name: rbx-backend-api-gateway-django-prod-svc
             port:
               number: 8000
       - pathType: Prefix
         path: "/static"
         backend:
           service:
-            name: rbx-backend-api-gateway-nginx-svc
+            name: rbx-backend-api-gateway-nginx-prod-svc
             port:
               number: 80
