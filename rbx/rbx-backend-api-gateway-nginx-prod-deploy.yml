@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rbx-backend-api-gateway-nginx-prod-deploy
+  labels:
+    app: rbx-backend-api-gateway-nginx-prod-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rbx-backend-api-gateway-nginx-prod-deploy
+  template:
+    metadata:
+      labels:
+        app: rbx-backend-api-gateway-nginx-prod-deploy
+    spec:
+      initContainers:
+      containers:
+      - name: rbx-backend-api-gateway-nginx-prod-deploy
+        image: ldamasio/rbx-backend-api-gateway-nginx-prod
+        ports:
+        - containerPort: 80

@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rbx-backend-api-gateway-prod-deploy
+  name: rbx-backend-api-gateway-django-prod-deploy
 spec:
   selector:
     matchLabels:
-      app: rbx-backend-api-gateway-prod-deploy
+      app: rbx-backend-api-gateway-django-prod-deploy
   template:
     metadata:
       labels:
-        app: rbx-backend-api-gateway-prod-deploy
+        app: rbx-backend-api-gateway-django-prod-deploy
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "3000"
         prometheus.io/path: "/metrics"
     spec:
       containers:
-        - name: rbx-backend-api-gateway-prod-deploy
+        - name: rbx-backend-api-gateway-django-prod-deploy
           image: ldamasio/cro-backend-django-prod:latest
           env:
           - name: DJANGO_SETTINGS_MODULE
