@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lda-frontend-prod-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "lda-frontend-prod-clusterissuer"
+    spec.ingressClassName: "public"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  ingressClassName: "public"
+  tls:
+    - hosts:
+      - www.leandrodamasio.com
+      secretName: lda-frontend-prod-secret
+  rules:
+  - host: www.leandrodamasio.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: lda-frontend-prod-svc
+            port:
+              number: 80

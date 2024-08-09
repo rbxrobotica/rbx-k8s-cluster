@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cro-frontend-prod-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "cro-frontend-prod-clusterissuer"
+    spec.ingressClassName: "public"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  ingressClassName: "public"
+  tls:
+  - hosts:
+    - www.cromofinanciamentos.com.br
+    secretName: cro-frontend-prod-secret
+  rules:
+  - host: www.cromofinanciamentos.com.br
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: cro-frontend-prod-svc
+            port:
+              number: 80
