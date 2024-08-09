@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rbx-backend-api-gateway-clusterissuer
+  name: rbx-backend-api-gateway-ing
   annotations:
-    cert-manager.io/cluster-issuer: "rbx-backend-api-gateway-clusterissuer"
+    cert-manager.io/cluster-issuer: "rbx-backend-api-gateway-prod-clusterissuer"
     spec.ingressClassName: "public"
 spec:
   tls:
