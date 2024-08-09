@@ -4,7 +4,7 @@ metadata:
   name: rbx-backend-api-gateway-django-prod-svc
 spec:
   selector:
-    app: rbx-backend-api-gateway-django-prod-svc
+    app: rbx-backend-api-gateway-django-prod-deploy
   ports:
     - protocol: TCP
       port: 8000
