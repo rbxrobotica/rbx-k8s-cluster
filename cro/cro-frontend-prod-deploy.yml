@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: cro-frontend-prod-deploy
-          image: ldamasio/cro-frontend-prod:latest
+          image: rbxrobotica/rbx-cro-frontend-prod:latest
           ports:
           - containerPort: 3000
           resources:
