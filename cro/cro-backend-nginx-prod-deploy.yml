@@ -17,6 +17,6 @@ spec:
       initContainers:
       containers:
       - name: cro-backend-nginx-prod-deploy
-        image: ldamasio/cro-backend-nginx-prod
+        image: rbxrobotica/rbx-cro-backend-nginx-prod
         ports:
         - containerPort: 80
