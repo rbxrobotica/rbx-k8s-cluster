@@ -4,14 +4,16 @@ metadata:
   name: rbx-frontend-prod-ing
   annotations:
     cert-manager.io/cluster-issuer: "rbx-frontend-prod-clusterissuer"
+    spec.ingressClassName: "public"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   ingressClassName: "public"
   tls:
   - hosts:
-    - rbxrobotica.com.br
+    - www.rbxrobotica.com.br
     secretName: rbx-frontend-prod-secret
   rules:
-  - host: rbxrobotica.com.br
+  - host: www.rbxrobotica.com.br
     http:
       paths:
       - pathType: Prefix
