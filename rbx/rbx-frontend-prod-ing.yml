@@ -10,8 +10,6 @@ spec:
   ingressClassName: "public"
   tls:
     - hosts:
-      - rbxrobotica.com.br
-    - hosts:
       - www.rbxrobotica.com.br
       secretName: rbx-frontend-prod-secret
   rules:
