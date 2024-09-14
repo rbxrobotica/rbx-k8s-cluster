@@ -9,9 +9,9 @@ metadata:
 spec:
   ingressClassName: "public"
   tls:
-  - hosts:
-    - www.rbxrobotica.com.br
-    secretName: rbx-frontend-prod-secret
+    - hosts:
+      - www.rbxrobotica.com.br
+      secretName: rbx-frontend-prod-secret
   rules:
   - host: www.rbxrobotica.com.br
     http:
