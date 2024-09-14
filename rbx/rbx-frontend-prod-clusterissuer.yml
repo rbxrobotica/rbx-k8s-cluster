@@ -9,6 +9,6 @@ spec:
     privateKeySecretRef:
       name: lets-encrypt-account-key
     solvers:
-    - http01:
-      ingress:
-        class: public
+      - http01:
+        ingress:
+          class: public
