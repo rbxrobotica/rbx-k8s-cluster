@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: msx-api-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "msx-api-clusterissuer"
+    spec.ingressClassName: "public"
+spec:
+  ingressClassName: "public"
+  tls:
+  - hosts:
+    - msx-api-v1.leandrodamasio.com
+    secretName: cro-frontend-prod-secret
+  rules:
+  - host: msx-api-v1.leandrodamasio.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: my-fastapi-app
+            port:
+              number: 80

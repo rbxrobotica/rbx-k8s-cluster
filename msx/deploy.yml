@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-fastapi-app
+spec:
+  selector:
+    matchLabels:
+      app: my-fastapi-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-fastapi-app
+    spec:
+      containers:
+      - name: my-fastapi-app
+        image: ldamasio/msx-api:latest
+        ports:
+        - containerPort: 80
