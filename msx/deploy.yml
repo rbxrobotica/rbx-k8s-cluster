@@ -19,10 +19,4 @@ spec:
         - containerPort: 80
         envFrom:
         - secretRef:
-          name: DATABASE_URL
-        - secretRef:
-          name: JWT_SECRET_KEY 
-        - secretRef:
-          name: JWT_ALGORITHM
-        - secretRef:
-          name: JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+          name: msx-secret
