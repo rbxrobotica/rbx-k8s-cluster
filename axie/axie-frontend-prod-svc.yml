@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: axie-frontend-prod-svc
+spec:
+  selector:
+    app: axie-frontend-prod-deploy
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
