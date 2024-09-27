@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cro-backend-nginx-prod-deploy
+  name: axie-backend-nginx-prod-deploy
   labels:
-    app: cro-backend-nginx-prod-deploy
+    app: axie-backend-nginx-prod-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cro-backend-nginx-prod-deploy
+      app: axie-backend-nginx-prod-deploy
   template:
     metadata:
       labels:
-        app: cro-backend-nginx-prod-deploy
+        app: axie-backend-nginx-prod-deploy
     spec:
       initContainers:
       containers:
-      - name: cro-backend-nginx-prod-deploy
-        image: rbxrobotica/rbx-cro-backend-nginx-prod
+      - name: axie-backend-nginx-prod-deploy
+        image: ldamasio/axie-backend-nginx-prod
         ports:
         - containerPort: 80
