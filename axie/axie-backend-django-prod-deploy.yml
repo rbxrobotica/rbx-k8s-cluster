@@ -20,7 +20,7 @@ spec:
           image: ldamasio/axie-backend-django-prod
           env:
           - name: DJANGO_SETTINGS_MODULE
-            value: "backend.settings"
+            value: "axie_profit.settings"
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
