@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sig-backend-nginx-prod-svc
+spec:
+  selector:
+    app: sig-backend-nginx-prod-deploy
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

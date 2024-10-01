@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sig-backend-django-prod-deploy
+spec:
+  selector:
+    matchLabels:
+      app: sig-backend-django-prod-deploy
+  template:
+    metadata:
+      labels:
+        app: sig-backend-django-prod-deploy
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: sig-backend-django-prod-deploy
+          image: ldamasio/sig-backend-django-prod
+          env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: "sig_profit.settings"
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: SECRET_KEY
+          - name: POSTGRES_HOST
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: POSTGRES_HOST
+          - name: POSTGRES_PORT
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: POSTGRES_PORT
+          - name: POSTGRES_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: POSTGRES_DATABASE
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: POSTGRES_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: POSTGRES_PASSWORD
+          - name: API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: API_KEY
+          - name: API_URL
+            valueFrom:
+              secretKeyRef:
+                name: sig-django-secret
+                key: API_URL
+          ports:
+          - containerPort: 8000
+          resources:
+            requests:
+              memory: "1000Mi"
+              cpu: "750m"
+            limits:
+              memory: "1000Mi"
+              cpu: "1500m"

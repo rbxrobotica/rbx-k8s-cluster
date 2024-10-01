@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sig-backend-prod-ing
+  annotations:
+    cert-manager.io/cluster-issuer: "sig-backend-prod-clusterissuer"
+    spec.ingressClassName: "public"
+spec:
+  tls:
+  - hosts:
+    - api-sigma.rbxrobotica.com.br
+    secretName: sig-backend-prod-secret
+  rules:
+  - host: api-sigma.rbxrobotica.com.br
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: sig-backend-django-prod-svc
+            port:
+              number: 8000
+      - pathType: Prefix
+        path: "/static"
+        backend:
+          service:
+            name: sig-backend-nginx-prod-svc
+            port:
+              number: 80
