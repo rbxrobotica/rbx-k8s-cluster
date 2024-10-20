@@ -22,27 +22,27 @@ spec:
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: cro-django-secret
+                name: lumi-secret
                 key: SECRET_KEY
           - name: DB_HOST
             valueFrom:
               secretKeyRef:
-                name: cro-django-secret
+                name: lumi-secret
                 key: DB_HOST
           - name: DB_NAME
             valueFrom:
               secretKeyRef:
-                name: cro-django-secret
+                name: lumi-secret
                 key: DB_NAME
           - name: DB_USER
             valueFrom:
               secretKeyRef:
-                name: cro-django-secret
+                name: lumi-secret
                 key: DB_USER
           - name: DB_PASS
             valueFrom:
               secretKeyRef:
-                name: cro-django-secret
+                name: lumi-secret
                 key: DB_PASS
           ports:
           - containerPort: 3000
