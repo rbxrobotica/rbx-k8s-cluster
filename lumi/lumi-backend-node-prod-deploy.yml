@@ -19,11 +19,6 @@ spec:
         - name: lumi-backend-node-prod-deploy
           image: ldamasio/lumi-backend:latest
           env:
-          - name: SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: lumi-secret
-                key: SECRET_KEY
           - name: DB_HOST
             valueFrom:
               secretKeyRef:
