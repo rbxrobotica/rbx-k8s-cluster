@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lumi-backend-node-prod-deploy
+spec:
+  selector:
+    matchLabels:
+      app: lumi-backend-node-prod-deploy
+  template:
+    metadata:
+      labels:
+        app: lumi-backend-node-prod-deploy
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: lumi-backend-node-prod-deploy
+          image: ldamasio/rbx-cro-backend-django-prod:latest
+          env:
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: cro-django-secret
+                key: SECRET_KEY
+          - name: DB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: cro-django-secret
+                key: DB_HOST
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: cro-django-secret
+                key: DB_NAME
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: cro-django-secret
+                key: DB_USER
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: cro-django-secret
+                key: DB_PASS
+          ports:
+          - containerPort: 3000
+          resources:
+            requests:
+              memory: "1000Mi"
+              cpu: "750m"
+            limits:
+              memory: "1000Mi"
+              cpu: "1500m"
