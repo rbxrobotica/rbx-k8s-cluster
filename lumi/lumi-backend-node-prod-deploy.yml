@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: lumi-backend-node-prod-deploy
-          image: ldamasio/rbx-cro-backend-django-prod:latest
+          image: ldamasio/lumi-backend:latest
           env:
           - name: SECRET_KEY
             valueFrom:
