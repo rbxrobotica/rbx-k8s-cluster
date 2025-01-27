@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: rbx-frontend-prod-ing
   annotations:
-    cert-manager.io/cluster-issuer: "rbx-frontend-prod-clusterissuer"
+    cert-manager.io/cluster-issuer: "rbx-frontend-homolog-clusterissuer"
 spec:
   ingressClassName: "public"
   tls:
