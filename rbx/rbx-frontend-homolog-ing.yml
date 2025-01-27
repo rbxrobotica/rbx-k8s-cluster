@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts:
         - homolog.rbxrobotica.com.br
-      secretName: rbx-frontend-prod-secret
+      secretName: rbx-frontend-homolog-secret
   rules:
     - host: homolog.rbxrobotica.com.br
       http:
