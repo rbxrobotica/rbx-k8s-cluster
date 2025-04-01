@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
- name: lda-frontend-prod-clusterissuer
+ name: lda-front-prod-clusterissuer
 spec:
  acme:
    email: ldamasio@gmail.com
