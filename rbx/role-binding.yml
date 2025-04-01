@@ -4,10 +4,9 @@ metadata:
   name: rbx-access-joao
   namespace: rbx
 subjects:
-- kind: User
-  name: joao
-  apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: joao
 roleRef:
   kind: Role
-  name: rbx-access
+  name: rbx-full-access
   apiGroup: rbac.authorization.k8s.io
