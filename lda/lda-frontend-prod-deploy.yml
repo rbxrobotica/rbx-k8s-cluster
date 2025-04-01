@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lda-frontend-prod-deploy
+  name: lda-frontend-prod
+  namespace: rbx
 spec:
   selector:
     matchLabels:
-      app: lda-frontend-prod-deploy
+      app: lda-frontend-prod
   template:
     metadata:
       labels:
-        app: lda-frontend-prod-deploy
+        app: lda-frontend-prod
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "3408"
         prometheus.io/path: "/metrics"
     spec:
       containers:
-        - name: lda-frontend-prod-deploy
-          image: ldamasio/lda-frontend:latest
+        - name: lda-front-prod
+          image: ldamasio/lda-front:latest
           ports:
           - containerPort: 3408
           resources:
