@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lda-frontend-prod
+  name: lda-front-prod
   namespace: rbx
 spec:
   selector:
     matchLabels:
-      app: lda-frontend-prod
+      app: lda-front-prod
   template:
     metadata:
       labels:
-        app: lda-frontend-prod
+        app: lda-front-prod
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "3408"
