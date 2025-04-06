@@ -8,5 +8,5 @@ spec:
     app: lda-front-prod-deploy
   ports:
     - port: 80
-      targetPort: 3408
+      targetPort: 3000
   type: LoadBalancer

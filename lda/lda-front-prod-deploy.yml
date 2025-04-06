@@ -20,11 +20,11 @@ spec:
         - name: lda-front-prod
           image: ldamasio/lda-front:latest
           ports:
-          - containerPort: 3408
+          - containerPort: 3000
           resources:
             requests:
-              memory: "100Mi"
-              cpu: "250m"
-            limits:
               memory: "200Mi"
               cpu: "500m"
+            limits:
+              memory: "200Mi"
+              cpu: "1000m"
