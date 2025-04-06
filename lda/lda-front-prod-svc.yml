@@ -5,7 +5,7 @@ metadata:
   namespace: rbx
 spec:
   selector:
-    app: lda-front-prod-deploy
+    app: lda-front-prod
   ports:
     - port: 80
       targetPort: 3000
