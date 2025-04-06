@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lda-front-prod-ingress
+  namespace: rbx
   annotations:
     cert-manager.io/cluster-issuer: "lda-front-prod-clusterissuer"
     spec.ingressClassName: "public"
